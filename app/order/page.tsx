@@ -19,20 +19,27 @@ export default function OrderPage() {
       return;
     }
 
-    let message = `New Medicine Request:%0A
-Name: ${name}%0A
-Phone: ${phone}%0A
-`;
+    // ✅ CLEAN MESSAGE (NO %0A)
+    let message = `New Medicine Request:
+Name: ${name}
+Phone: ${phone}`;
 
     if (medicines) {
-      message += `%0AMedicines Requested:%0A${medicines}%0A`;
+      message += `
+
+Medicines Requested:
+${medicines}`;
     }
 
     if (file) {
-      message += `%0APrescription image uploaded by customer.%0A`;
+      message += `
+
+Prescription image uploaded by customer.`;
     }
 
-    message += `%0APlease call the customer to confirm availability.`;
+    message += `
+
+Please call the customer to confirm availability.`;
 
     const whatsappUrl = `https://wa.me/916006286695?text=${encodeURIComponent(
       message
@@ -47,8 +54,7 @@ Phone: ${phone}%0A
 
         {/* Header */}
         <div className="text-center mb-10">
-          <span className="inline-block bg-green-100 text-green-700
-                           px-4 py-1 rounded-full text-sm font-semibold mb-4">
+          <span className="inline-block bg-green-100 text-green-700 px-4 py-1 rounded-full text-sm font-semibold mb-4">
             Easy Medicine Ordering
           </span>
 
@@ -66,7 +72,7 @@ Phone: ${phone}%0A
           </p>
         </div>
 
-        {/* Card */}
+        {/* Form Card */}
         <div className="bg-white rounded-2xl shadow-lg border border-green-200 p-8">
 
           {/* Name */}
@@ -78,9 +84,9 @@ Phone: ${phone}%0A
               type="text"
               placeholder="Enter your full name"
               className="w-full bg-white text-gray-900 placeholder-gray-400
-                        border border-green-300 p-3 rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-green-500
-                        focus:border-green-500"
+                         border border-green-300 p-3 rounded-lg
+                         focus:outline-none focus:ring-2 focus:ring-green-500
+                         focus:border-green-500"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -95,9 +101,9 @@ Phone: ${phone}%0A
               type="tel"
               placeholder="Enter your phone number"
               className="w-full bg-white text-gray-900 placeholder-gray-400
-                        border border-green-300 p-3 rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-green-500
-                        focus:border-green-500"
+                         border border-green-300 p-3 rounded-lg
+                         focus:outline-none focus:ring-2 focus:ring-green-500
+                         focus:border-green-500"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -111,9 +117,9 @@ Phone: ${phone}%0A
             <textarea
               placeholder="Example: Crocin, Azithromycin, Vitamin D3"
               className="w-full bg-white text-gray-900 placeholder-gray-400
-                        border border-green-300 p-3 rounded-lg
-                        focus:outline-none focus:ring-2 focus:ring-green-500
-                        focus:border-green-500"
+                         border border-green-300 p-3 rounded-lg
+                         focus:outline-none focus:ring-2 focus:ring-green-500
+                         focus:border-green-500"
               value={medicines}
               onChange={(e) => setMedicines(e.target.value)}
             />
@@ -126,14 +132,13 @@ Phone: ${phone}%0A
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          {/* Upload Prescription (FIXED) */}
+          {/* Upload Prescription */}
           <div className="mb-6">
             <label className="block mb-2 text-sm font-semibold text-gray-900">
               Upload Prescription
             </label>
 
             <div className="flex items-center gap-4">
-              {/* Hidden input */}
               <input
                 type="file"
                 id="prescription"
@@ -142,7 +147,6 @@ Phone: ${phone}%0A
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
               />
 
-              {/* Button */}
               <label
                 htmlFor="prescription"
                 className="cursor-pointer bg-green-100 text-green-800
@@ -152,12 +156,7 @@ Phone: ${phone}%0A
                 Choose File
               </label>
 
-              {/* File name */}
-              <span
-                className={`text-sm ${
-                  file ? "text-gray-900" : "text-gray-400"
-                }`}
-              >
+              <span className={`text-sm ${file ? "text-gray-900" : "text-gray-400"}`}>
                 {file ? file.name : "No file chosen"}
               </span>
             </div>
