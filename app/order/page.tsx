@@ -58,8 +58,11 @@ Phone: ${phone}%0A
 
           <p className="text-gray-600 text-lg">
             Enter medicine names or upload a prescription.
-            Our team will <span className="font-semibold text-green-600">
-            personally call you</span> to confirm availability and delivery.
+            Our team will{" "}
+            <span className="font-semibold text-green-600">
+              personally call you
+            </span>{" "}
+            to confirm availability and delivery.
           </p>
         </div>
 
@@ -68,14 +71,16 @@ Phone: ${phone}%0A
 
           {/* Name */}
           <div className="mb-4">
-            <label className="block mb-1 text-sm font-semibold text-gray-700">
+            <label className="block mb-1 text-sm font-semibold text-gray-900">
               Your Name
             </label>
             <input
               type="text"
               placeholder="Enter your full name"
-              className="w-full border border-gray-300 rounded-lg p-3
-                         focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-white text-gray-900 placeholder-gray-400
+                        border border-green-300 p-3 rounded-lg
+                        focus:outline-none focus:ring-2 focus:ring-green-500
+                        focus:border-green-500"
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
@@ -83,14 +88,16 @@ Phone: ${phone}%0A
 
           {/* Phone */}
           <div className="mb-4">
-            <label className="block mb-1 text-sm font-semibold text-gray-700">
+            <label className="block mb-1 text-sm font-semibold text-gray-900">
               Phone Number
             </label>
             <input
               type="tel"
               placeholder="Enter your phone number"
-              className="w-full border border-gray-300 rounded-lg p-3
-                         focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-white text-gray-900 placeholder-gray-400
+                        border border-green-300 p-3 rounded-lg
+                        focus:outline-none focus:ring-2 focus:ring-green-500
+                        focus:border-green-500"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -98,13 +105,15 @@ Phone: ${phone}%0A
 
           {/* Medicines */}
           <div className="mb-4">
-            <label className="block mb-1 text-sm font-semibold text-gray-700">
+            <label className="block mb-1 text-sm font-semibold text-gray-900">
               Medicine Names (Optional)
             </label>
             <textarea
               placeholder="Example: Crocin, Azithromycin, Vitamin D3"
-              className="w-full border border-gray-300 rounded-lg p-3 h-28
-                         focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full bg-white text-gray-900 placeholder-gray-400
+                        border border-green-300 p-3 rounded-lg
+                        focus:outline-none focus:ring-2 focus:ring-green-500
+                        focus:border-green-500"
               value={medicines}
               onChange={(e) => setMedicines(e.target.value)}
             />
@@ -117,22 +126,41 @@ Phone: ${phone}%0A
             <div className="flex-1 h-px bg-gray-200" />
           </div>
 
-          {/* File Upload */}
+          {/* Upload Prescription (FIXED) */}
           <div className="mb-6">
-            <label className="block mb-1 text-sm font-semibold text-gray-700">
+            <label className="block mb-2 text-sm font-semibold text-gray-900">
               Upload Prescription
             </label>
-            <input
-              type="file"
-              accept="image/*"
-              capture="environment"
-              className="w-full border border-gray-300 rounded-lg p-3
-                         file:mr-4 file:py-2 file:px-4
-                         file:rounded-lg file:border-0
-                         file:bg-green-100 file:text-green-700
-                         hover:file:bg-green-200"
-              onChange={(e) => setFile(e.target.files?.[0] || null)}
-            />
+
+            <div className="flex items-center gap-4">
+              {/* Hidden input */}
+              <input
+                type="file"
+                id="prescription"
+                accept="image/*"
+                className="hidden"
+                onChange={(e) => setFile(e.target.files?.[0] || null)}
+              />
+
+              {/* Button */}
+              <label
+                htmlFor="prescription"
+                className="cursor-pointer bg-green-100 text-green-800
+                           px-4 py-2 rounded-lg font-medium
+                           hover:bg-green-200 transition"
+              >
+                Choose File
+              </label>
+
+              {/* File name */}
+              <span
+                className={`text-sm ${
+                  file ? "text-gray-900" : "text-gray-400"
+                }`}
+              >
+                {file ? file.name : "No file chosen"}
+              </span>
+            </div>
           </div>
 
           {/* Submit */}
