@@ -14,7 +14,11 @@ export default function Navbar() {
       <Link
         href={href}
         className={`relative text-[15px] font-semibold tracking-wide transition
-          ${isActive ? "text-green-600" : "text-gray-800 hover:text-green-600"}
+          ${
+            isActive
+              ? "text-green-600"
+              : "text-gray-900 hover:text-green-600"
+          }
         `}
       >
         {label}
@@ -26,7 +30,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md shadow-sm">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
         {/* Brand */}
@@ -56,8 +60,9 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-2xl font-extrabold text-gray-900"
+          className="md:hidden text-3xl font-extrabold text-gray-900"
           onClick={() => setOpen(!open)}
+          aria-label="Toggle menu"
         >
           ☰
         </button>
@@ -65,20 +70,35 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white border-t shadow-xl px-6 py-6 space-y-5">
-          <Link href="/" onClick={() => setOpen(false)} className="block text-lg font-semibold">
+        <div className="md:hidden bg-white border-t shadow-xl px-6 py-6 space-y-6">
+          <Link
+            href="/"
+            onClick={() => setOpen(false)}
+            className="block text-lg font-bold text-gray-900"
+          >
             Home
           </Link>
-          <Link href="/about" onClick={() => setOpen(false)} className="block text-lg font-semibold">
+
+          <Link
+            href="/about"
+            onClick={() => setOpen(false)}
+            className="block text-lg font-bold text-gray-900"
+          >
             About
           </Link>
-          <Link href="/contact" onClick={() => setOpen(false)} className="block text-lg font-semibold">
+
+          <Link
+            href="/contact"
+            onClick={() => setOpen(false)}
+            className="block text-lg font-bold text-gray-900"
+          >
             Contact
           </Link>
+
           <Link
             href="/order"
             onClick={() => setOpen(false)}
-            className="block bg-green-600 text-white text-center py-3 rounded-xl text-lg font-bold shadow"
+            className="block bg-green-600 text-white text-center py-3 rounded-xl text-lg font-extrabold shadow hover:bg-green-700 transition"
           >
             Order Medicines
           </Link>
