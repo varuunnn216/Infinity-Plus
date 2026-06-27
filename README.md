@@ -10,7 +10,6 @@ Customers can view services, submit medicine requests, upload prescriptions, rea
 - Trust highlights (genuine medicines, personal confirmation)
 - Auto-rotating customer reviews
 - Add-your-own review with star rating
-- Embedded Google Maps location
 
 ### 📝 Order Medicines
 - Enter medicine names or upload prescription image
