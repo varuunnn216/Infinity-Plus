@@ -78,3 +78,7 @@ infinity-plus-pharmacy/
 Full-Stack Developer | MERN | Next.js  
 
 Built with ❤️ for a local business using modern web technologies.
+
+## License
+
+[MIT](LICENSE) © 2026 Varun Singh · See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
