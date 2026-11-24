@@ -81,4 +81,4 @@ Built with ❤️ for a local business using modern web technologies.
 
 ## License
 
-[MIT](LICENSE) © 2026 Varun Singh · See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+[MIT](LICENSE) © 2026 Varun Singh · See [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and [CHANGELOG.md](CHANGELOG.md).
