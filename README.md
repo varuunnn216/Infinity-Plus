@@ -32,9 +32,9 @@ Customers can view services, submit medicine requests, upload prescriptions, rea
 - Optimized UI/UX using Tailwind CSS
 
 ## 🛠 Tech Stack
-- **Framework:** Next.js 14 (App Router)
+- **Framework:** Next.js 16 (App Router)
 - **Language:** TypeScript
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS 4
 - **State Management:** React Hooks
 - **Maps:** Google Maps Embed
 - **Integration:** WhatsApp Deep Links
@@ -61,7 +61,7 @@ infinity-plus-pharmacy/
 │       └── pharmacy1.jpg
 │
 ├── package.json
-├── tailwind.config.ts
+├── postcss.config.mjs
 ├── tsconfig.json
 └── README.md
 ```
